@@ -29,7 +29,8 @@ class MRect {
     rect(center.x, center.y, width, height);
     noFill();
   }
-
+  
+  //returns true if the rectangle overlaps point x,y
   boolean overlaps(float x, float y)
   {
     return !((x < center.x - width/2) || (x > center.x + width/2) || (y < center.y - width/2) || (y > center.y + width/2));

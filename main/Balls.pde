@@ -18,8 +18,8 @@ class Balls {
   {
     for(int i = 0; i < data.size(); ++i)
     {
-      Ball temp = data.get(i);
-      temp.draw();
+      Ball ball = data.get(i);
+      ball.draw();
     }
   }
   
@@ -27,15 +27,19 @@ class Balls {
   {
     for(int i = 0; i < data.size(); ++i)
     {
-      Ball temp = data.get(i);
-      if(rects.collide(temp))
+      Ball ball = data.get(i);
+      if(rects.collide(ball))
       {
-        MRect tempR = rects.getCollider(temp);
-        float score = tones.addTone(tempR);
-        tempR.fillRect(120*(6-score)/6);
+        //retrieve the rectangle it collided with
+        MRect rect = rects.getCollider(ball);
+        //retrieve the score for the rectangle
+        float score = tones.addTone(rect);
+        //color the rectangle based on its score
+        rect.fillRect(120*(6-score)/6);
+        //remove the ball
         data.remove(i);
       }
-      else if(!temp.onScreen())
+      else if(!ball.onScreen())
       {
         data.remove(i);
       }

@@ -1,7 +1,3 @@
-/*************************/
-//    music utilities
-/*************************/
-
 // takes frequency in hz,
 // converts to half step value
 // relative to any octave
@@ -44,4 +40,3 @@ float scoreForFrequency(double user_freq, double song_key, Vector<Double>allowab
   // an allowable value of half steps)
   return (float)((double)(Collections.min(errors)));
 }
-

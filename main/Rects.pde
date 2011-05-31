@@ -8,13 +8,17 @@ class Rects {
     latched = false;
   }
 
+  //latch/unlatch a rectangle
   void latch(float x, float y)
   {
+    //if nothing is latched
     if (!latched)
     {
-      moving = getCollider(x, y); //keep track of the box we're moving
+      //latch whatever is at x,y
+      moving = getCollider(x, y);
       latched = true;
     }
+    //if something is latched
     else
     {
       latched = false;
@@ -33,10 +37,12 @@ class Rects {
 
   void draw(float x, float y)
   {
+    //if anything is latched, move it to the current mouse position
     if (latched)
     {
       moving.moveTo(x, y);
     }
+    //draw everything
     for (int i = 0; i < data.size(); ++i)
     {
       data.get(i).draw();

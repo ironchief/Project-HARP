@@ -21,7 +21,8 @@ class Tone {
     frames = _duration;
     freq = _freq;
     float maxFreq = baseFreq * pow(2,octaves);
-    amp = 1.4*((maxFreq-freq)/maxFreq)+.7;
+    //arbitrarily vary amplitude from 2.1 at the lowest frequencies to .1 at the highest
+    amp = 2*((maxFreq-freq)/maxFreq)+.1;
     signal = new SineWave(_freq, amp, sample);
   }
   

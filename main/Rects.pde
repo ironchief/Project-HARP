@@ -1,10 +1,10 @@
 class Rects {
-  ArrayList data;
+  ArrayList<MRect> data;
   boolean latched;
   MRect moving;
 
   Rects() {
-    data = new ArrayList();
+    data = new ArrayList<MRect>();
     latched = false;
   }
 
@@ -39,7 +39,7 @@ class Rects {
     }
     for (int i = 0; i < data.size(); ++i)
     {
-      ((MRect)data.get(i)).draw();
+      data.get(i).draw();
     }
   }
 
@@ -47,7 +47,7 @@ class Rects {
   {
     for (int i = 0; i < data.size(); ++i)
     {
-      if (((MRect)data.get(i)).overlaps(x, y))
+      if ((data.get(i)).overlaps(x, y))
       {
         return i;
       }
@@ -68,12 +68,12 @@ class Rects {
 
   MRect getCollider(float x, float y)
   {
-    return (MRect)data.get(getColliderIndex(x, y));
+    return data.get(getColliderIndex(x, y));
   }
 
   MRect getCollider(Ball ball)
   {
-    return (MRect)data.get(getColliderIndex(ball.center.x, ball.center.y));
+    return data.get(getColliderIndex(ball.center.x, ball.center.y));
   }
   
   boolean collide(Ball ball)

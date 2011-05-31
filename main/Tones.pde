@@ -1,5 +1,5 @@
 class Tones {
-  ArrayList tones;
+  ArrayList<Tone> tones;
   int duration = 10;
   
   AudioOutput out;
@@ -9,7 +9,7 @@ class Tones {
   
   Tones(AudioOutput _out)
   {
-    tones = new ArrayList();
+    tones = new ArrayList<Tone>();
     out = _out;
   }
   
@@ -30,7 +30,7 @@ class Tones {
   {
     for(int i = 0; i < tones.size(); ++i)
     {
-      Tone temp = (Tone)tones.get(i);
+      Tone temp = tones.get(i);
       temp.live();
       if(temp.isDead())
       {
@@ -42,8 +42,6 @@ class Tones {
   
   void removeTone(Tone tone)
   {
-    out.removeSignal(tone.getSignal());
-    
-  }
-  
+    out.removeSignal(tone.getSignal()); 
+  } 
 }

@@ -1,7 +1,7 @@
 class Balls {
-  ArrayList data;
+  ArrayList<Ball> data;
   Balls() {
-    data = new ArrayList();
+    data = new ArrayList<Ball>();
   }
   
   void add(PVector center)
@@ -18,7 +18,7 @@ class Balls {
   {
     for(int i = 0; i < data.size(); ++i)
     {
-      Ball temp = (Ball)data.get(i);
+      Ball temp = data.get(i);
       temp.draw();
     }
   }
@@ -27,10 +27,12 @@ class Balls {
   {
     for(int i = 0; i < data.size(); ++i)
     {
-      Ball temp = (Ball)data.get(i);
+      Ball temp = data.get(i);
       if(rects.collide(temp))
       {
         MRect tempR = rects.getCollider(temp);
+        int score = 5;
+        tempR.fillRect(90*(6-score)/6);
         tones.addTone(tempR);
         data.remove(i);
       }

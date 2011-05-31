@@ -31,7 +31,7 @@ class Balls {
       if(rects.collide(temp))
       {
         MRect tempR = rects.getCollider(temp);
-        int score = 5;
+        int score = 3;
         tempR.fillRect(90*(6-score)/6);
         tones.addTone(tempR);
         data.remove(i);

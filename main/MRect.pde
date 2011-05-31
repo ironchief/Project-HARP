@@ -1,11 +1,10 @@
 class MRect {
   int width = 60;
   int height = 20;
-  int fillLong = 50;
+  int fillTime = 50;
   PVector center;
   int hue;
   int saturation;
-  int fillTime;
   boolean filled;
 
   MRect(PVector _center)
@@ -18,11 +17,10 @@ class MRect {
   {
     rectMode(CENTER);
     colorMode(HSB);
-    if(filled && fillTime > 0)
+    if(filled && saturation > 0)
     {
       fill(hue,saturation,360);
-      fillTime--;
-      saturation = saturation - (360 / fillLong);
+      saturation = saturation - (360 / fillTime);
     }
     else
     {
@@ -52,6 +50,5 @@ class MRect {
     filled = true;
     hue = _hue;
     saturation = 360;
-    fillTime = fillLong;
   }
 }

@@ -70,6 +70,11 @@ class Rects {
   {
     return (MRect)data.get(getColliderIndex(x, y));
   }
+
+  MRect getCollider(Ball ball)
+  {
+    return (MRect)data.get(getColliderIndex(ball.center.x, ball.center.y));
+  }
   
   boolean collide(Ball ball)
   {

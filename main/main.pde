@@ -1,9 +1,17 @@
+import ddf.minim.*;
+import ddf.minim.signals.*;
+
 Rects rects = new Rects(); //wrapper class for rects
 Balls balls = new Balls(); //wrapper class for balls
+Tones tones;
+
+Minim minim;
 
 void setup()
 {
   size(800, 600);
+  minim = new Minim(this);
+  tones = new Tones(minim.getLineOut(Minim.STEREO));
 }
 
 void draw()
@@ -11,7 +19,8 @@ void draw()
   background(255);
   rects.draw(mouseX, mouseY);
   balls.draw();
-  balls.removeCollisions(rects);
+  balls.removeCollisions(rects,tones);
+  tones.removeDeadTones();
 }
 
 void mousePressed()

@@ -23,13 +23,15 @@ class Balls {
     }
   }
   
-  void removeCollisions(Rects rects)
+  void removeCollisions(Rects rects,Tones tones)
   {
     for(int i = 0; i < data.size(); ++i)
     {
       Ball temp = (Ball)data.get(i);
       if(rects.collide(temp))
       {
+        MRect tempR = rects.getCollider(temp);
+        tones.addTone(tempR);
         data.remove(i);
       }
       else if(!temp.onScreen())

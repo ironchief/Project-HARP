@@ -3,7 +3,7 @@ class MRect {
   int height = 20;
   int fillTime = 50;
   PVector center;
-  int hue;
+  float hue;
   int saturation;
   boolean filled;
 
@@ -45,7 +45,7 @@ class MRect {
     moveTo(new PVector(x, y));
   }
   
-  void fillRect(int _hue)
+  void fillRect(float _hue)
   {
     filled = true;
     hue = _hue;

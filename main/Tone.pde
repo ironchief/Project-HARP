@@ -3,8 +3,8 @@ class Tone {
   float freq;
   int frames;
   SineWave signal;
-  float amp = .7;
   int sample = 44100;
+  float amp;
   
   void live()
   {
@@ -20,6 +20,8 @@ class Tone {
   {
     frames = _duration;
     freq = _freq;
+    float maxFreq = baseFreq * pow(2,octaves);
+    amp = 1.4*((maxFreq-freq)/maxFreq)+.7;
     signal = new SineWave(_freq, amp, sample);
   }
   

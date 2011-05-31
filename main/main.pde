@@ -1,11 +1,19 @@
 import ddf.minim.*;
 import ddf.minim.signals.*;
+import java.util.Vector;
+import java.util.Collections;
+import java.lang.Math.*;
 
 Rects rects = new Rects(); //wrapper class for rects
 Balls balls = new Balls(); //wrapper class for balls
 Tones tones;
 
 Minim minim;
+
+double song_key = 1;
+Vector<Double> allowable = allowedStepsForBlues(song_key);
+int octaves = 3;
+int baseFreq = 220;
 
 void setup()
 {
@@ -16,7 +24,8 @@ void setup()
 
 void draw()
 {
-  background(255);
+  colorMode(HSB,360);
+  background(360);
   rects.draw(mouseX, mouseY);
   balls.draw();
   balls.removeCollisions(rects,tones);

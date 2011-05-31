@@ -3,9 +3,6 @@ class Tones {
   int duration = 10;
   
   AudioOutput out;
-
-  int octaves = 3;
-  int baseFreq = 220;
   
   Tones(AudioOutput _out)
   {
@@ -20,10 +17,11 @@ class Tones {
     out.addSignal(temp.getSignal());
   }
   
-  void addTone(MRect rect)
+  float addTone(MRect rect)
   {
     float freq = baseFreq*pow(2,(octaves*((height - rect.center.y)/height)));
     addTone(freq);
+    return scoreForFrequency(freq,song_key,allowable);
   }
   
   void removeDeadTones()

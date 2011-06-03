@@ -28,7 +28,6 @@ class MRect {
       filled = false;
     }
     rect(center.x, center.y, width, height);
-    noFill();
   }
   
   //returns true if the rectangle overlaps point x,y

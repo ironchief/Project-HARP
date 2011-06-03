@@ -16,7 +16,6 @@ class Ball {
     fall();
     fill(360);
     ellipse(center.x,center.y,diameter,diameter);
-    noFill();
   }
   
   void fall()

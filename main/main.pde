@@ -16,10 +16,13 @@ Vector<Double> allowable = allowedStepsForBlues(song_key);
 int octaves = 2;
 int baseFreq = 220;
 int level = 1;
+float score = 0;
 
 void setup()
 {
   size(800, 600);
+  colorMode(HSB,360);
+  noStroke();
   minim = new Minim(this);
   tones = new Tones(minim.getLineOut(Minim.STEREO));
   level1 = minim.loadSnippet("Assets/Chameleon - Sax.wav");
@@ -28,9 +31,8 @@ void setup()
 
 void draw()
 {
-  colorMode(HSB,360);
   background(50);
-  noStroke();
+  fill(360);
   rects.draw(mouseX, mouseY);
   balls.draw();
   balls.removeCollisions(rects,tones);

@@ -11,7 +11,7 @@ Tones tones;
 Minim minim;
 AudioSnippet level1;
 
-double song_key = 1;
+float song_key = 1;
 Vector<Double> allowable = allowedStepsForBlues(song_key);
 int octaves = 2;
 int baseFreq = 220;

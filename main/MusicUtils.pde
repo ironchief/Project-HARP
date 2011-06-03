@@ -43,11 +43,21 @@ float scoreForFrequency(float user_freq, float song_key, Vector<Double> allowabl
 
   Vector<Double> errors = new Vector<Double>();
   for (int i=0; i<allowable_steps.size(); ++i) {
-    errors.addElement(Math.abs(Math.abs(half_step) - Math.abs(allowable_steps.elementAt(i))%13));
+    errors.addElement(Math.abs(half_step) - Math.abs(allowable_steps.elementAt(i))%13);
+  }
+  
+  // find min
+  int min_index=0;
+  double min_error=6;
+  for (int j=0; j<errors.size();++j){
+    if(Math.abs(errors.elementAt(j))<Math.abs(min_error)){
+      min_error = (double)errors.elementAt(j);
+      min_index=j; 
+    }
   }
 
   // return score for value with min error
   // (e.g., value that is closest to the 
   // an allowable value of half steps)
-  return (float)((double)Collections.min(errors));
+  return (float)((double)errors.elementAt(min_index));
 }

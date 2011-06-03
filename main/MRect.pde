@@ -2,6 +2,7 @@ class MRect {
   int width = 60;
   int height = 20;
   int fillTime = 50;
+  int arrow_direction;
   PVector center;
   float hue;
   int saturation;
@@ -19,7 +20,8 @@ class MRect {
     colorMode(HSB);
     if(filled && saturation > 0)
     {
-      Arrow arrow = new Arrow(color(hue,saturation,360,100),center,width);
+      Arrow arrow = new Arrow(color(hue,saturation,360,100),this);
+      arrow.arrow_direction = this.arrow_direction;
       arrow.draw();
       fill(hue,saturation,360);
       saturation = saturation - (360 / fillTime);

@@ -15,8 +15,8 @@ int iter = 1000; //ball drop time
 
 float song_key = 2;
 Vector<Double> allowable = allowedStepsForBlues(song_key);
-int octaves = 2;
-int baseFreq = 220;
+int octaves = 1;
+int baseFreq = 440;
 int currentLevel = 0;
 int score = 0;
 boolean latched = false;

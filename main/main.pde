@@ -18,7 +18,7 @@ Vector<Double> allowable = allowedStepsForBlues(song_key);
 int octaves = 2;
 int baseFreq = 220;
 int currentLevel = 0;
-float score = 0;
+int score = 0;
 boolean latched = false;
 
 ArrayList<Level> levels = new ArrayList<Level>();

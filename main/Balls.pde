@@ -35,9 +35,9 @@ class Balls {
         //retrieve the score for the rectangle
         float newScore = tones.addTone(rect);
         if(newScore<(float)0){      
-          rect.arrow_direction = -1; 
-        }else{ 
           rect.arrow_direction = 1; 
+        }else{ 
+          rect.arrow_direction = -1; 
         }
         print("\n");
         newScore = 6 - min(1/pow(newScore,1.5),6);

@@ -30,9 +30,9 @@ class Level {
   
   int reqScore()
   {
-    int amt = 100/100; //% of blocks you need to score on
-    float reqsc = 5/6; //required distance
-    return ((int)reqsc*balls.size()*amt*100); //required score
+    float amt = 100/100; //% of blocks you need to score on
+    float reqsc = ((float)5)/((float)6); //required distance
+    return (int)(reqsc*(balls.size()-1)*amt*100); //required score
   }
   
 }

@@ -9,17 +9,21 @@ Balls balls = new Balls(); //wrapper class for balls
 Tones tones;
 
 Minim minim;
+AudioSnippet level1;
 
 double song_key = 1;
 Vector<Double> allowable = allowedStepsForBlues(song_key);
 int octaves = 2;
 int baseFreq = 220;
+int level = 1;
 
 void setup()
 {
   size(800, 600);
   minim = new Minim(this);
   tones = new Tones(minim.getLineOut(Minim.STEREO));
+  level1 = minim.loadSnippet("Assets/Chameleon - Sax.wav");
+  level1.play();
 }
 
 void draw()

@@ -12,7 +12,7 @@ Minim minim;
 
 double song_key = 1;
 Vector<Double> allowable = allowedStepsForBlues(song_key);
-int octaves = 3;
+int octaves = 2;
 int baseFreq = 220;
 
 void setup()
@@ -25,7 +25,8 @@ void setup()
 void draw()
 {
   colorMode(HSB,360);
-  background(360);
+  background(50);
+  noStroke();
   rects.draw(mouseX, mouseY);
   balls.draw();
   balls.removeCollisions(rects,tones);

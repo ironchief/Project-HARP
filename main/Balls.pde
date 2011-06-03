@@ -35,7 +35,7 @@ class Balls {
         //retrieve the score for the rectangle
         float score = tones.addTone(rect);
         //color the rectangle based on its score
-        rect.fillRect(120*(6-score)/6);
+        rect.fillRect(120*(1.5-score)/1.5);
         //remove the ball
         data.remove(i);
       }

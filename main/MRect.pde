@@ -24,6 +24,7 @@ class MRect {
     }
     else
     {
+      fill(360);
       filled = false;
     }
     rect(center.x, center.y, width, height);

@@ -86,4 +86,9 @@ class Rects {
   {
     return isClicked(ball.center.x,ball.center.y);
   }
+  
+  void clear()
+  {
+    data.clear();
+  }
 }

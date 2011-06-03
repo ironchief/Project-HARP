@@ -42,7 +42,7 @@ void draw()
 {
   if(!music.isPlaying())
   {
-    if(score > 100)
+    if(score > levels.get(currentLevel).reqScore())
     {
       currentLevel++;
       rects.clear();

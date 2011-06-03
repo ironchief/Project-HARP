@@ -27,4 +27,12 @@ class Level {
   {
     currentBall = 0;
   }
+  
+  int reqScore()
+  {
+    int amt = 100/100; //% of blocks you need to score on
+    float reqsc = 5/6; //required distance
+    return ((int)reqsc*balls.size()*amt*100); //required score
+  }
+  
 }

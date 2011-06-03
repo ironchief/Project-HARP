@@ -26,6 +26,17 @@ Vector<Double> allowedStepsForBlues(float k) {
   return steps;
 }
 
+double normalizeScore(double raw_score, Vector<Double>allowable_steps){
+  // get the max difference between allowable steps
+  Vector<Double> diffs = new Vector<Double>();
+  for(int i=0; i<allowable_steps.size()-1; ++i){
+     diffs.addElement((allowable_steps.elementAt(i+1)-allowable_steps.elementAt(i))/2);
+     print(diffs.elementAt(i));
+  }
+  double max_val = Collections.max(diffs);
+  return raw_score/max_val;
+}
+
 // returns a 0-6 score for a user's selected frequency
 float scoreForFrequency(float user_freq, float song_key, Vector<Double> allowable_steps) {
   // find the user's half-step value
@@ -39,5 +50,5 @@ float scoreForFrequency(float user_freq, float song_key, Vector<Double> allowabl
   // return score for value with min error
   // (e.g., value that is closest to the 
   // an allowable value of half steps)
-  return (float)((double)Collections.min(errors));
+  return (float)normalizeScore(Collections.min(errors), allowable_steps);
 }

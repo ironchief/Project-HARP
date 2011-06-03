@@ -39,13 +39,15 @@ void setup()
   music = levels.get(currentLevel).snippet;
   timer.start();
   radar = new RadarRenderer(music);
-  groove.addListener(radar);
+  music.addListener(radar);
   radar.setup();
 }
 
 void draw()
 {
+  background(50);
   radar.draw();
+  colorMode(HSB,360);
   if(!music.isPlaying())
   {
     if(score > levels.get(currentLevel).reqScore())
@@ -63,7 +65,6 @@ void draw()
     balls.add(levels.get(currentLevel).nextBall());
     timer.start();
   }
-  background(50);
   fill(360);
   text("Level: " + currentLevel,10,20);
   text("Score: " + score,10,40);

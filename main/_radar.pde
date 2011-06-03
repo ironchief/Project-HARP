@@ -18,6 +18,8 @@ class RadarRenderer extends AudioRenderer {
   
   synchronized void draw()
   {
+    colorMode(RGB, TWO_PI * rotations, 1, 1);
+    background(0);
     if(left != null) {
    
       float t = map(millis(),0, delay * 1000, 0, PI);   

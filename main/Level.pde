@@ -1,13 +1,13 @@
 class Level {
   String path;
-  AudioSnippet snippet;
+  AudioPlayer snippet;
   ArrayList<Integer> balls;
   int currentBall;
   
   Level(Minim minim, String _path)
   {
     path = _path;
-    snippet = minim.loadSnippet(path);
+    snippet = minim.loadFile(path);
 //    snippet.setVolume(1000);
     balls = new ArrayList<Integer>();
     for(int i = 0; i < snippet.length()/iter+1; ++i)

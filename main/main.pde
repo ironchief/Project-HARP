@@ -27,6 +27,7 @@ Timer timer = new Timer(iter);
 
 void setup()
 {
+  frameRate(60);
   levels.add(new Level(minim, "Assets/Chameleon - Sax.wav"));
   size(800, 600);
   colorMode(HSB,360);

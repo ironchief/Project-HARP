@@ -13,7 +13,7 @@ AudioSnippet music;
 
 int iter = 500; //ball drop time
 
-float song_key = 1;
+float song_key = 2.5;
 Vector<Double> allowable = allowedStepsForBlues(song_key);
 int octaves = 2;
 int baseFreq = 220;

@@ -72,7 +72,6 @@ void draw()
 
 void mousePressed()
 {
-  balls.add(mouseX, mouseY + 40);
   if (!rects.isClicked(mouseX, mouseY)) //if you're not clicking on a box
   {
     rects.add(mouseX, mouseY); //add one

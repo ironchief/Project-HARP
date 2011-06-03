@@ -31,7 +31,6 @@ double normalizeScore(double raw_score, Vector<Double>allowable_steps){
   Vector<Double> diffs = new Vector<Double>();
   for(int i=0; i<allowable_steps.size()-1; ++i){
      diffs.addElement((allowable_steps.elementAt(i+1)-allowable_steps.elementAt(i))/2);
-     print(diffs.elementAt(i));
   }
   double max_val = Collections.max(diffs);
   return raw_score/max_val;

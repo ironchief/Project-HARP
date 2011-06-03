@@ -42,6 +42,11 @@ void draw()
 {
   if(!music.isPlaying())
   {
+    if(score > 100)
+    {
+      currentLevel++;
+      rects.clear();
+    }
     score = 0;
     levels.get(currentLevel).resetBalls();
     music.play(0);
@@ -53,7 +58,8 @@ void draw()
   }
   background(50);
   fill(360);
-  text("Score: " + score,10,20);
+  text("Level: " + currentLevel,10,20);
+  text("Score: " + score,10,40);
   rects.draw(mouseX, mouseY);
   balls.draw();
   balls.removeCollisions(rects,tones);

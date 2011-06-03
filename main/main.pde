@@ -49,6 +49,7 @@ void draw()
     }
     score = 0;
     levels.get(currentLevel).resetBalls();
+    music = levels.get(currentLevel).snippet;
     music.play(0);
   }
   if(timer.isFinished())

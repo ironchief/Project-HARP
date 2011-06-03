@@ -9,7 +9,7 @@ Balls balls = new Balls(); //wrapper class for balls
 
 Minim minim = new Minim(this);
 Tones tones = new Tones(minim.getLineOut(Minim.STEREO));
-AudioSnippet music;
+AudioPlayer music;
 
 int iter = 1000; //ball drop time
 
@@ -25,21 +25,27 @@ ArrayList<Level> levels = new ArrayList<Level>();
 
 Timer timer = new Timer(iter);
 
+AudioRenderer radar;
+
 void setup()
 {
   frameRate(60);
   levels.add(new Level(minim, "Assets/Chameleon - Bass,Snare.wav"));
   levels.add(new Level(minim, "Assets/Chameleon - Sax.wav"));
   levels.add(new Level(minim, "Assets/Chameleon Key Solo 1.wav"));
-  size(800, 600);
+  size(800, 600, P3D);
   colorMode(HSB,360);
   noStroke();
   music = levels.get(currentLevel).snippet;
   timer.start();
+  radar = new RadarRenderer(music);
+  groove.addListener(radar);
+  radar.setup();
 }
 
 void draw()
 {
+  radar.draw();
   if(!music.isPlaying())
   {
     if(score > levels.get(currentLevel).reqScore())

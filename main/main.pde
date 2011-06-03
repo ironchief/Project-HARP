@@ -11,7 +11,7 @@ Minim minim = new Minim(this);
 Tones tones = new Tones(minim.getLineOut(Minim.STEREO));
 AudioSnippet music;
 
-int iter = 500; //ball drop time
+int iter = 1000; //ball drop time
 
 float song_key = 2.5;
 Vector<Double> allowable = allowedStepsForBlues(song_key);

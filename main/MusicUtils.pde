@@ -49,5 +49,5 @@ float scoreForFrequency(float user_freq, float song_key, Vector<Double> allowabl
   // return score for value with min error
   // (e.g., value that is closest to the 
   // an allowable value of half steps)
-  return (float)normalizeScore(Collections.min(errors), allowable_steps);
+  return (float)((double)Collections.min(errors));
 }

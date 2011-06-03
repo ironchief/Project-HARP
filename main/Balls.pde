@@ -34,10 +34,10 @@ class Balls {
         MRect rect = rects.getCollider(ball);
         //retrieve the score for the rectangle
         float newScore = tones.addTone(rect);
-        newScore = 1 - newScore;
-        score += (int)(newScore * 100);
+        newScore = 6 - newScore;
+        score += (int)(newScore * 100/6);
         //color the rectangle based on its score
-        rect.fillRect(120*newScore);
+        rect.fillRect(120*(log(newScore)/log(6)));
         //remove the ball
         data.remove(i);
       }

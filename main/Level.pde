@@ -8,6 +8,7 @@ class Level {
   {
     path = _path;
     snippet = minim.loadSnippet(path);
+//    snippet.setVolume(1000);
     balls = new ArrayList<Integer>();
     for(int i = 0; i < snippet.length()/iter+1; ++i)
     {

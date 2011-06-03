@@ -28,8 +28,8 @@ Timer timer = new Timer(iter);
 void setup()
 {
   frameRate(60);
-  levels.add(new Level(minim, "Assets/Chameleon - Sax.wav"));
   levels.add(new Level(minim, "Assets/Chameleon - Bass,Snare.wav"));
+  levels.add(new Level(minim, "Assets/Chameleon - Sax.wav"));
   levels.add(new Level(minim, "Assets/Chameleon Key Solo 1.wav"));
   size(800, 600);
   colorMode(HSB,360);

@@ -9,14 +9,14 @@ Balls balls = new Balls(); //wrapper class for balls
 
 Minim minim = new Minim(this);
 Tones tones = new Tones(minim.getLineOut(Minim.STEREO));
-AudioSnippet music;
+AudioPlayer music;
 
 int iter = 1000; //ball drop time
 
 float song_key = 2;
 Vector<Double> allowable = allowedStepsForBlues(song_key);
 int octaves = 1;
-int baseFreq = 440;
+int baseFreq = 600;
 int currentLevel = 0;
 int score = 0;
 boolean latched = false;
@@ -25,21 +25,41 @@ ArrayList<Level> levels = new ArrayList<Level>();
 
 Timer timer = new Timer(iter);
 
+AudioRenderer radar;
+
 void setup()
 {
   frameRate(60);
   levels.add(new Level(minim, "Assets/Chameleon - Bass,Snare.wav"));
   levels.add(new Level(minim, "Assets/Chameleon - Sax.wav"));
   levels.add(new Level(minim, "Assets/Chameleon Key Solo 1.wav"));
-  size(800, 600);
+  levels.add(new Level(minim, "Assets/HBFS Clips/HBFS-1-Start-0-04.wav"));
+  levels.add(new Level(minim, "Assets/HBFS Clips/HBFS-2-Start-0-20.wav"));
+  levels.add(new Level(minim, "Assets/HBFS Clips/HBFS-3-Vocal-0-51.wav"));
+  levels.add(new Level(minim, "Assets/HBFS Clips/HBFS-4-Vocal21-07.wav"));
+  levels.add(new Level(minim, "Assets/HBFS Clips/HBFS-5-Interlude1-34.wav"));
+  levels.add(new Level(minim, "Assets/HBFS Clips/HBFS-6-Reprise-1-53.wav"));
+  levels.add(new Level(minim, "Assets/HBFS Clips/HBFS-7-Reprise-2-17.wav"));
+  levels.add(new Level(minim, "Assets/HBFS Clips/HBFS-8-Drums-2-40.wav"));
+  levels.add(new Level(minim, "Assets/HBFS Clips/HBFS-9-Chorus-3-03.wav"));
+  levels.add(new Level(minim, "Assets/HBFS Clips/HBFS-10-Chorus-3-11.wav"));
+  levels.add(new Level(minim, "Assets/HBFS Clips/HBFS-11-Spasm-3-19.wav"));
+  levels.add(new Level(minim, "Assets/HBFS Clips/HBFS-12-End-3-34.wav"));
+  size(800, 600, P3D);
   colorMode(HSB,360);
   noStroke();
   music = levels.get(currentLevel).snippet;
   timer.start();
+  radar = new RadarRenderer(music);
+  music.addListener(radar);
+  radar.setup();
 }
 
 void draw()
 {
+  background(50);
+  radar.draw();
+  colorMode(HSB,360);
   if(!music.isPlaying())
   {
     if(score > levels.get(currentLevel).reqScore())
@@ -51,13 +71,13 @@ void draw()
     levels.get(currentLevel).resetBalls();
     music = levels.get(currentLevel).snippet;
     music.play(0);
+    music.addListener(radar);
   }
   if(timer.isFinished())
   {
     balls.add(levels.get(currentLevel).nextBall());
     timer.start();
   }
-  background(50);
   fill(360);
   text("Level: " + currentLevel,10,20);
   text("Score: " + score,10,40);
@@ -67,10 +87,13 @@ void draw()
   tones.removeDeadTones();
   if(mousePressed)
   {
-    if(!latched && mouseEvent.getClickCount() != 2) //if we double clicked a box)
+    if(!latched && mouseEvent.getClickCount() != 2) //if we double clicked a box
     {
-      rects.latch(mouseX, mouseY);
-      latched = true;
+      if(rects.isClicked(mouseX,mouseY))
+      {
+        rects.latch(mouseX, mouseY);
+        latched = true;
+      }
     }
   }
   else if(latched)

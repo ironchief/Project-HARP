@@ -1,3 +1,11 @@
+import java.util.Vector;
+import java.util.Collections;
+import java.lang.Math.*;
+
+/*************************/
+//    music utilities
+/*************************/
+
 // takes frequency in hz,
 // converts to half step value
 // relative to any octave
@@ -30,6 +38,7 @@ Vector<Double> allowedStepsForBlues(double k){
 float scoreForFrequency(double user_freq, double song_key, Vector<Double>allowable_steps){
   // find the user's half-step value
   double half_step = freqToHalfStep(user_freq, song_key)%13;
+  print(half_step);
 
   Vector<Double> errors = new Vector<Double>();
   for(int i=0; i<allowable_steps.size(); ++i){
@@ -39,5 +48,5 @@ float scoreForFrequency(double user_freq, double song_key, Vector<Double>allowab
   // return score for value with min error
   // (e.g., value that is closest to the 
   // an allowable value of half steps)
-  return (float)((double)Collections.min(errors));
+  return (float) ((double) Collections.min(errors));
 }

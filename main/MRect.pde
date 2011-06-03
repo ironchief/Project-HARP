@@ -20,7 +20,7 @@ class MRect {
     colorMode(HSB);
     if(filled && saturation > 0)
     {
-      Arrow arrow = new Arrow(color(hue,saturation,360,100),this);
+      Arrow arrow = new Arrow(color(hue,360,saturation,100),this);
       arrow.arrow_direction = this.arrow_direction;
       arrow.draw();
       fill(hue,saturation,360);

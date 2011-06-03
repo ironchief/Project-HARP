@@ -15,7 +15,7 @@ class Arrow{
   
   void draw(){
     fill(fill_color);
-    
+    noStroke();
     // save context
     pushMatrix();
     

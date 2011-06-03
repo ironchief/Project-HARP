@@ -45,7 +45,7 @@ void setup()
   levels.add(new Level(minim, "Assets/HBFS Clips/HBFS-10-Chorus-3-11.wav"));
   levels.add(new Level(minim, "Assets/HBFS Clips/HBFS-11-Spasm-3-19.wav"));
   levels.add(new Level(minim, "Assets/HBFS Clips/HBFS-12-End-3-34.wav"));
-  size(800, 600, P3D);
+  size(1024, 768, P3D);
   colorMode(HSB,360);
   noStroke();
   music = levels.get(currentLevel).snippet;

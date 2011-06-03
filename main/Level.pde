@@ -12,7 +12,7 @@ class Level {
     balls = new ArrayList<Integer>();
     for(int i = 0; i < snippet.length()/iter+1; ++i)
     {
-      balls.add((int)random(0,800));
+      balls.add((int)random(0,1024));
     }
     resetBalls();
   }

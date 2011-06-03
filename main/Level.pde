@@ -9,7 +9,7 @@ class Level {
     path = _path;
     snippet = minim.loadSnippet(path);
     balls = new ArrayList<Integer>();
-    for(int i = 0; i < snippet.length()/iter; ++i)
+    for(int i = 0; i < snippet.length()/iter+1; ++i)
     {
       balls.add((int)random(0,800));
     }

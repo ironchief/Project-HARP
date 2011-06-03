@@ -33,6 +33,18 @@ void setup()
   levels.add(new Level(minim, "Assets/Chameleon - Bass,Snare.wav"));
   levels.add(new Level(minim, "Assets/Chameleon - Sax.wav"));
   levels.add(new Level(minim, "Assets/Chameleon Key Solo 1.wav"));
+  levels.add(new Level(minim, "Assets/HBFS Clips/HBFS-1-Start-0-04.wav"));
+  levels.add(new Level(minim, "Assets/HBFS Clips/HBFS-2-Start-0-20.wav"));
+  levels.add(new Level(minim, "Assets/HBFS Clips/HBFS-3-Vocal-0-51.wav"));
+  levels.add(new Level(minim, "Assets/HBFS Clips/HBFS-4-Vocal21-07.wav"));
+  levels.add(new Level(minim, "Assets/HBFS Clips/HBFS-5-Interlude1-34.wav"));
+  levels.add(new Level(minim, "Assets/HBFS Clips/HBFS-6-Reprise-1-53.wav"));
+  levels.add(new Level(minim, "Assets/HBFS Clips/HBFS-7-Reprise-2-17.wav"));
+  levels.add(new Level(minim, "Assets/HBFS Clips/HBFS-8-Drums-2-40.wav"));
+  levels.add(new Level(minim, "Assets/HBFS Clips/HBFS-9-Chorus-3-03.wav"));
+  levels.add(new Level(minim, "Assets/HBFS Clips/HBFS-10-Chorus-3-11.wav"));
+  levels.add(new Level(minim, "Assets/HBFS Clips/HBFS-11-Spasm-3-19.wav"));
+  levels.add(new Level(minim, "Assets/HBFS Clips/HBFS-12-End-3-34.wav"));
   size(800, 600, P3D);
   colorMode(HSB,360);
   noStroke();

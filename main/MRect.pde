@@ -19,6 +19,8 @@ class MRect {
     colorMode(HSB);
     if(filled && saturation > 0)
     {
+      Arrow arrow = new Arrow(color(hue,saturation,360,100),center,width);
+      arrow.draw();
       fill(hue,saturation,360);
       saturation = saturation - (360 / fillTime);
     }

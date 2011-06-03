@@ -87,10 +87,13 @@ void draw()
   tones.removeDeadTones();
   if(mousePressed)
   {
-    if(!latched && mouseEvent.getClickCount() != 2) //if we double clicked a box)
+    if(!latched && mouseEvent.getClickCount() != 2) //if we double clicked a box
     {
-      rects.latch(mouseX, mouseY);
-      latched = true;
+      if(rects.isClicked(mouseX,mouseY))
+      {
+        rects.latch(mouseX, mouseY);
+        latched = true;
+      }
     }
   }
   else if(latched)

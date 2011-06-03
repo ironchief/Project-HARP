@@ -71,6 +71,7 @@ void draw()
     levels.get(currentLevel).resetBalls();
     music = levels.get(currentLevel).snippet;
     music.play(0);
+    music.addListener(radar);
   }
   if(timer.isFinished())
   {
